@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>JavaScript Assignment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+    <style>
+    
+        .img{
+            width: 170px;
+            height: 170px;
+        }
+    </style>
+    </head>
+
+<body>
+   
+  <hr>
+   <h2>Fade In & Fade Out</h2>
+  <button type="button" class="out-btn">Fade Out</button>
+    <button type="button" class="in-btn">Fade In</button>
+   <p><img src="1.jpg" class="img"></p>
+    
+     
+    
+<script>
+ $(document).ready(function(){
+    // Fadeing out displayed paragraphs
+    $(".out-btn").click(function(){
+        $("p").fadeOut(300);
+    });
+    
+    // Fading in hidden paragraphs
+    $(".in-btn").click(function(){
+        $("p").fadeIn(3000);
+    });
+});
+    </script>
+    
+    <hr>
+ <h2>Show Value In 2nd textbox</h2>
+    
+ <label>Box 1: </label><input type="text" id="a" value=""/>
+    <label>Box 2: </label><input type="text" id="b" value=""/>
+    
+<script>
+$("#a").keyup(function() {
+    
+    $("#b").val($("#a").val()).change();
+})
+
+</script>
+
+   <hr>
+    <h2> Names Print in Loop</h2>
+    
+  <p1 id="Text"></p1>  
+    
+    <script>
+var names = ["Zeeshan", "Ovais", "Osama", "Ashir", "Huzaifa"];
+
+
+var text = "";
+
+for (var i = 0; i <names.length; i++) {
+   text += names[i] + "<br>";
+}
+document.getElementById("Text").innerHTML = text;
+</script>
+    <hr>
+     <h2>Textarea</h2>
+  <textarea id="textarea" name="text" maxlength="30" rows="10"></textarea>
+    Remaining Words
+<span id="count"></span>
+ 
+ <script>   
+  var el_t = document.getElementById('textarea');
+var length = el_t.getAttribute("maxlength");
+var el_c = document.getElementById('count');
+el_c.innerHTML = length;
+el_t.onkeyup = function () {
+  document.getElementById('count').innerHTML = (length - this.value.length);
+};
+    </script>
+    
+
+    </body>
+</html>
